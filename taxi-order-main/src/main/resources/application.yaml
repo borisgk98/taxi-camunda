@@ -1,0 +1,15 @@
+camunda:
+  bpm:
+    client:
+      base-url: ${CAMUNDA_ENGINE_REST_URL:http://localhost:8099/engine-rest} # the URL pointing to the Camunda Platform Runtime REST API
+      lock-duration: 10000 # defines how many milliseconds the External Tasks are locked until they can be fetched again
+      subscriptions:
+        validation: # topic name of the External Service Task
+#          variable-names: taxi_user # our business logic doesn't require any variables, so don't fetch them
+          process-definition-key: registration_process # only filter for External Tasks with this process definition key
+      basic-auth:
+        password: demo
+        username: demo
+
+server:
+  port: ${SERVER_PORT:8080}

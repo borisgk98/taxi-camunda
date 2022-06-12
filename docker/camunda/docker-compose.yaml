@@ -1,0 +1,14 @@
+version: '2'
+services:
+  camunda:
+    restart: always
+    image: camunda/camunda-bpm-platform:latest
+    ports:
+      - "8099:8080"
+#  db:
+#    image: postgres
+#    restart: always
+#    environment:
+#      POSTGRES_PASSWORD: 
+#    ports:
+#      - 5439:5432

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_00i7o0w" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.0.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.17.0">
+  <bpmn:collaboration id="Collaboration_0crj7cu">
+    <bpmn:participant id="Participant_1" name="Registration" processRef="registration_process" />
+  </bpmn:collaboration>
+  <bpmn:process id="registration_process" name="Registration" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_0le6scn</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="Validation" name="Validation" camunda:type="external" camunda:topic="validation">
+      <bpmn:incoming>Flow_0le6scn</bpmn:incoming>
+      <bpmn:outgoing>Flow_1ywbqdw</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="Event_154wsbg">
+      <bpmn:incoming>Flow_1ywbqdw</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0le6scn" sourceRef="StartEvent_1" targetRef="Validation" />
+    <bpmn:sequenceFlow id="Flow_1ywbqdw" sourceRef="Validation" targetRef="Event_154wsbg" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0crj7cu">
+      <bpmndi:BPMNShape id="Participant_1tcg43m_di" bpmnElement="Participant_1" isHorizontal="true">
+        <dc:Bounds x="160" y="125" width="660" height="295" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0le6scn_di" bpmnElement="Flow_0le6scn">
+        <di:waypoint x="278" y="250" />
+        <di:waypoint x="360" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ywbqdw_di" bpmnElement="Flow_1ywbqdw">
+        <di:waypoint x="460" y="250" />
+        <di:waypoint x="542" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="242" y="232" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0u2lko9_di" bpmnElement="Validation">
+        <dc:Bounds x="360" y="210" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_154wsbg_di" bpmnElement="Event_154wsbg">
+        <dc:Bounds x="542" y="232" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
